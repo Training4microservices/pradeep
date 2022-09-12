@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: discovery-client
+server:
+  port: 8383
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+  spring:
+   profiles:
+       active: default
+
+       spring:
+            datasource:
+              url: jdbc:h2:mem:mstraining
+            spring:
+              datasource:
+                driver-class-name: org.h2.Driver
+
+
+                spring:
+                  datasource:
+                    username: sa
+                  spring:
+                   datasource:
+                     password:
+                     spring:
+                      h2:
+                       console:
+                        enabled: true
+                       spring:
+                         jpa:
+                           show-sql: true
+                         spring:
+                           jpa:
+                             hibernate:
+                               ddl-auto: update
+                           spring:
+                             jpa:
+                               properties:
+                                 hibernate:
+                                   format_sql: true
+                               spring:
+                                 jpa:
+                                   database-platform: org.hibernate.dialect.H2Dialect
+                                 spring:
+                                  datasource:
+                                   data: classpath:data.sql
+                                   spring:
+                                      datasource:
+                                         schema: classpath:schema.sql
